@@ -3141,6 +3141,7 @@ GameObject:
   - component: {fileID: 724357206}
   - component: {fileID: 724357207}
   - component: {fileID: 724357208}
+  - component: {fileID: 724357209}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: PlayerView
@@ -3232,6 +3233,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 1
+--- !u!114 &724357209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724357202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e09e12906668404a83a1f941fd83cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &728662674
 GameObject:
   m_ObjectHideFlags: 0

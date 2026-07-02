@@ -13,12 +13,20 @@ public class TargetController : MonoBehaviour
 {
     public State currentStateVisual = State.idle;
     private TargetState currentState;
+    private System.Random rand = new System.Random();
 
     [Header("Moveset")]
     public float walkspeed;
     public float runspeed;
     public float spinspeed;
     public float jumpspeed;
+
+    [Header("ChosenWeight")]
+    public int idleweight;
+    public int walkweight;
+    public int runweight;
+    public int spinweight;
+    public int jumpweight;
 
     public Rigidbody rb;
     public bool isGround = true;
@@ -34,7 +42,7 @@ public class TargetController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        // Instancia os estados passando a referência deste script (this)
+        // Instancia os estados passando a referï¿½ncia deste script (this)
         IdleState = new TargetIdleState(this);
         WalkState = new TargetWalkState(this);
         RunState = new TargetRunState(this);
@@ -117,6 +125,43 @@ public class TargetController : MonoBehaviour
             {
                 ChangeState(IdleState);
             }
+        }
+    }
+
+    public void RandomizeState()
+    {
+        int[] weight = { idleweight, walkweight, runweight, spinweight, jumpweight };
+
+        int totalWeight = 0;
+
+        for(int i = 0; i < weight.Length; i++)
+        {
+            totalWeight += weight[i];
+        }
+
+        int randomNumber = rand.Next(0, totalWeight);
+
+        int chosenNumber = -1;
+        int cumulativeSum = 0;
+
+        for(int i = 0; i < weight.Length;i++)
+        {
+            cumulativeSum += weight[i];
+
+            if(randomNumber < cumulativeSum)
+            {
+                chosenNumber = i;
+                break;
+            }
+        }
+
+        switch (chosenNumber)
+        {
+            case 0: { ChangeState(IdleState); break; }
+            case 1: { ChangeState(WalkState); break; }
+            case 2: { ChangeState(RunState); break; }
+            case 3: { ChangeState(SpinState); break; }
+            case 4: { ChangeState(JumpState); break; }
         }
     }
 }
