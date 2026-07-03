@@ -34,6 +34,11 @@ public static class SaveSystem
         File.WriteAllText(saveFilePath, json);
     }
 
+    public static void DeleteSave()
+    {
+        File.Delete(saveFilePath);
+    }
+
     public static bool Load(ref SaveData loadData)
     {
         Debug.Log("Caminho do arquivo de save: " + saveFilePath);

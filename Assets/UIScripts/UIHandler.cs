@@ -205,11 +205,6 @@ public class UIHandler : MonoBehaviour
 
     }
 
-    public void closeSettingsMenu()
-    {
-        settingsMenuPanel.SetActive(false);
-    }
-
     #endregion
 
 }
