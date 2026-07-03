@@ -20,6 +20,7 @@ public class UIHandler : MonoBehaviour
     public GridLayoutGroup atomballGridLayout;
     public float atomballMenuMaxWidth;
     public GameObject atomballSelectInfo;
+    public GameObject settingsMenuPanel;
     private TouchTest touchTest;
     [SerializeField] private Image detailImage;
     [SerializeField] private TMP_Text detailName;
@@ -48,7 +49,42 @@ public class UIHandler : MonoBehaviour
             Debug.LogError("sem Thrower");
         }
     } // or more fields
-    
+
+    private void hideUIWithExcept(GameObject exceptThis)
+    {
+        var state = exceptThis.activeInHierarchy;
+
+        hideUI();
+
+        exceptThis.SetActive(state);
+    }
+
+    private void hideUI()
+    {
+        physpediaPanel.SetActive(false);
+        objpediaPanel.SetActive(false);
+        detailPanel.SetActive(false);
+        atomballMenu.SetActive(false);
+        atomballSelectInfo.SetActive(false);
+        settingsMenuPanel.SetActive(false);
+    }
+
+    #region Objepedia e Physipedia
+
+    public void openPhyspedia()
+    {
+        hideUIWithExcept(physpediaPanel);
+        physpediaPanel.SetActive(!physpediaPanel.activeInHierarchy);
+        //touchTest.canInteract = false;
+    }
+
+    public void openObjpedia()
+    {
+        hideUIWithExcept(objpediaPanel);
+        objpediaPanel.SetActive(!objpediaPanel.activeInHierarchy);
+        //touchTest.canInteract = false;
+    }
+
     public void DisplayPhysicistDetails(PhysicistData data)
     {
         hideUIWithExcept(detailPanel);
@@ -75,7 +111,7 @@ public class UIHandler : MonoBehaviour
             detailBio.text = "?????";
         }
     }
-    
+
     public void DisplayObjectDetails(ObjectData data)
     {
         hideUIWithExcept(detailPanel);
@@ -85,23 +121,9 @@ public class UIHandler : MonoBehaviour
         detailBio.text = "Descrição: \n" + data.description;
     }
 
-    private void hideUIWithExcept(GameObject exceptThis)
-    {
-        var state = exceptThis.activeInHierarchy;
+    #endregion
 
-        hideUI();
-
-        exceptThis.SetActive(state);
-    }
-
-    private void hideUI()
-    {
-        physpediaPanel.SetActive(false);
-        objpediaPanel.SetActive(false);
-        detailPanel.SetActive(false);
-        atomballMenu.SetActive(false);
-        atomballSelectInfo.SetActive(false);
-    }
+    #region Capture
 
     public void enableCapture()
     {
@@ -128,20 +150,9 @@ public class UIHandler : MonoBehaviour
 
     }
 
-    public void openPhyspedia()
-    {
-        hideUIWithExcept(physpediaPanel);
-        physpediaPanel.SetActive(!physpediaPanel.activeInHierarchy);
-        //touchTest.canInteract = false;
-    }
+    #endregion
 
-    public void openObjpedia()
-    {
-        hideUIWithExcept(objpediaPanel);
-        objpediaPanel.SetActive(!objpediaPanel.activeInHierarchy);
-        //touchTest.canInteract = false;
-    }
-
+    #region Atomball Menu
     public static void UpdateCellSizeAtomball(
     GridLayoutGroup grid,
     int columns)
@@ -183,6 +194,23 @@ public class UIHandler : MonoBehaviour
             AtomballCard.disableOutlinesExceptForAtomballSelected();
         }
     }
+
+    #endregion
+
+    #region Settings Menu
+    public void openSettingsMenu()
+    {
+        hideUI();
+        settingsMenuPanel.SetActive(true);
+
+    }
+
+    public void closeSettingsMenu()
+    {
+        settingsMenuPanel.SetActive(false);
+    }
+
+    #endregion
 
 }
 
