@@ -62,6 +62,12 @@ public class PhysicistTrigger : MonoBehaviour
         {
             if (hpCurrent <= 0)
             {
+                DateTime atual = DateTime.Now;
+                int recapMod = 0;
+                recapMod = UnityEngine.Random.Range(3,6);
+                DateTime prox = atual.AddMinutes(recapMod);
+                info.recaptureTime = prox;
+                Debug.Log($"RECAPTURE DEFINIDO: {info.recaptureTime}");
                 data.physicistCaptureInfo.ForEach(info => { Debug.Log(info.ToString()); });
                 encounterManager.RegisterPhysicistEncounter(data, foundTimes);
             }
@@ -82,7 +88,7 @@ public class PhysicistTrigger : MonoBehaviour
             //        ci.captureTime = atual;
             //        ci.recaptureTime = prox;
             //    }
-
+            Debug.Log("HandleDestroyed");
             OnPhysicistDestroyed?.Invoke(this);
         }
     }
