@@ -106,20 +106,23 @@ namespace PokemonGO.Code
 
                         if (capInfo.model == other.gameObject)
                         {
-                            capInfo.captureTime = DateTime.Now;
-                            trackedImage = capInfo.trackedImage;
-                             DateTime atual = DateTime.Now;
-                            int recapMod = 0;
-                            recapMod = UnityEngine.Random.Range(3,6);
-                            DateTime prox = atual.AddMinutes(recapMod);
-                            capInfo.recaptureTime = prox;
-                            Debug.Log($"RECAPTURE DEFINIDO: {capInfo.recaptureTime}");
+                            //capInfo.captureTime = DateTime.Now;
+                            //trackedImage = capInfo.trackedImage;
+                            //DateTime atual = DateTime.Now;
+                            //int recapMod = 0;
+                            //recapMod = UnityEngine.Random.Range(3,6);
+                            //DateTime prox = atual.AddMinutes(recapMod);
+                            //capInfo.recaptureTime = prox;
+                            Debug.Log($"colidiu");
                             break;
                         }
                     }
 
                     targetDied = physicistTrigger.ReduceHp(this.healthDamage);
-                    physicistTrigger.TriggerEncounter(atomballInfo.captureTimes);
+                    if(targetDied)
+                        { 
+                        physicistTrigger.TriggerEncounter(atomballInfo.captureTimes); 
+                        }
 
                 } else if (other.gameObject.transform.CompareTag("Object"))
                 {
@@ -149,7 +152,8 @@ namespace PokemonGO.Code
                 // Por enquanto, vamos apenas parar a pokébola e destruir os objetos.
                 if (IsFollowingPath) _followPathTween.Kill(true); // O 'true' finaliza a animação da trajetória imediatamente
 
-                if (targetDied) { Destroy(other.gameObject); } // Destrói o alvo
+                if (targetDied) { 
+                    Destroy(other.gameObject); } // Destrói o alvo
                 Destroy(this.gameObject, 2f); // Destrói a pokébola depois de 2 segundos para dar tempo de ver
 
                 // O return é importante para não executar a lógica de quicar abaixo

@@ -6,6 +6,7 @@ using TMPro;
 
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using System.Numerics;
 
 public class ImageTracker : MonoBehaviour
 {
@@ -122,8 +123,8 @@ public class ImageTracker : MonoBehaviour
     */
     private void UpdateLabelPosition(ARTrackedImage trackedImage, TMP_Text label)
     {
-    Vector3 screenPos = arCamera.WorldToScreenPoint(trackedImage.transform.position);
-    label.rectTransform.position = screenPos + new Vector3(0,0,10);
+    UnityEngine.Vector3 screenPos = arCamera.WorldToScreenPoint(trackedImage.transform.position);
+    label.rectTransform.position = screenPos + new UnityEngine.Vector3(0,0,10);
 
     }
 
@@ -187,6 +188,8 @@ public class ImageTracker : MonoBehaviour
 
     private void TrySpawnFromImage(ARTrackedImage trackedImage)
     {
+
+    Debug.Log("TrySpawn");
     if (trackedImage == null) //se imagem invalida
         return;
 
@@ -249,16 +252,35 @@ public class ImageTracker : MonoBehaviour
         // Instancia o objeto
         GameObject obj = Instantiate(arPrefab);
 
-        obj.transform.position =
-            trackedImage.transform.position;
+        // Fazer o objeto surgir entre a imagem e a camera
+        Transform cam = Camera.main.transform;
 
-        obj.transform.rotation =
-            trackedImage.transform.rotation;
+        // Interpola posição da camera e imagem
+        UnityEngine.Vector3 spawnPos = UnityEngine.Vector3.Lerp(trackedImage.transform.position, cam.position, 0.15f);
+
+        // garante pelo menos 50 cm da câmera
+        float minDist = 0.5f;
+
+        if (UnityEngine.Vector3.Distance(cam.position, spawnPos) < minDist)
+        {
+            spawnPos = cam.position + cam.forward * minDist;
+        }
+
+        // coloca o objeto 
+        obj.transform.position = spawnPos;
+
+        // escala automática
+        float dist =  UnityEngine.Vector3.Distance(cam.position, spawnPos);
+
+        float scale = Mathf.Clamp(dist * 0.075f, 0.03f, 1f);
+
+        obj.transform.localScale = UnityEngine.Vector3.one * scale;
+
+        obj.transform.rotation = trackedImage.transform.rotation;
 
         ARObjects.Add(obj);
 
-        PhysicistTrigger trigger =
-            obj.GetComponent<PhysicistTrigger>();
+        PhysicistTrigger trigger = obj.GetComponent<PhysicistTrigger>();
 
         if (info != null)
         {
