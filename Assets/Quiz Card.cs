@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ObjectCard : MonoBehaviour
+public class QuizCard : MonoBehaviour
 {
-    private ObjectData data;
+    private QuizData data;
     public Color32 unfoundColor = new Color32(180, 180, 180, 255);
 
-    public void SetData(ObjectData newData)
+    public void SetData(QuizData newData)
     {
         data = newData;
         GetComponent<Image>().sprite = data.icon;

@@ -8,7 +8,7 @@ public static class SaveSystem
     public struct SaveData
     {
         public List<PhysicistDataPack> foundPhysicistsDataPacks;
-        public List<ObjectDataPack> foundObjectsDataPacks;
+        public List<QuizDataPack> foundQuizzesDataPacks;
     }
 
     private static string saveFilePath = Application.persistentDataPath + "/saveData.save";
@@ -22,7 +22,7 @@ public static class SaveSystem
     }
 
     [System.Serializable]
-    public struct ObjectDataPack
+    public struct QuizDataPack
     {
         public int id;
         public int foundTimes;
