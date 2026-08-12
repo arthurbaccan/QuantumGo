@@ -112,7 +112,7 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    public void DisplayObjectDetails(ObjectData data)
+    public void DisplayObjectDetails(QuizData data)
     {
         hideUIWithExcept(detailPanel);
         detailPanel.SetActive(true);

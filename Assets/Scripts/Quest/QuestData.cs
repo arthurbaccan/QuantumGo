@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuestData : ScriptableObject
 {
     public PhysicistData questGiver;
-    public ObjectData questObjective;
+    public QuizData questObjective;
     
     public string description;
     

@@ -15,9 +15,9 @@ public class NewCapturableDemo
     public Sprite icon;                              // icone para a enciclopédia
     public GameObject modelPrefab;                   //O modelo 3D do físico
     public AudioClip presentationAudio;              //O áudio da apresentação
-    public ObjectData correctIcon;
+    public QuizData correctIcon;
 
-    public NewCapturableDemo(bool newIsObject, int newId, string newName, string newDescription, Dialogue newDialogue, QuestData newQuest, Sprite newIcon, GameObject newModel, AudioClip newAudio, ObjectData newCorrectIcon)
+    public NewCapturableDemo(bool newIsObject, int newId, string newName, string newDescription, Dialogue newDialogue, QuestData newQuest, Sprite newIcon, GameObject newModel, AudioClip newAudio, QuizData newCorrectIcon)
     {
         isObject = newIsObject;
         id = newId;
