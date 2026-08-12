@@ -2105,7 +2105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 139291979659398104, guid: c12541dd5ee81d544a94734507fad61e, type: 3}
       propertyPath: m_Name
-      value: Object Card
+      value: Quiz Card
       objectReference: {fileID: 0}
     - target: {fileID: 919677119286439487, guid: c12541dd5ee81d544a94734507fad61e, type: 3}
       propertyPath: m_Pivot.x
@@ -6906,7 +6906,7 @@ MonoBehaviour:
   physpediaManager: {fileID: 1968352109}
   currentSaveData:
     foundPhysicistsDataPacks: []
-    foundObjectsDataPacks: []
+    foundQuizzesDataPacks: []
 --- !u!1 &1126989165
 GameObject:
   m_ObjectHideFlags: 0
@@ -11149,18 +11149,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6291819161185804844, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}
       propertyPath: m_Name
-      value: Objpedia Manager
+      value: Quizpedia Manager
       objectReference: {fileID: 0}
     - target: {fileID: 7057939433354960917, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}
       propertyPath: detailPanel
       value: 
       objectReference: {fileID: 1085992294}
     - target: {fileID: 7057939433354960917, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}
+      propertyPath: quizCardPrefab
+      value: 
+      objectReference: {fileID: 1982225775}
+    - target: {fileID: 7057939433354960917, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}
       propertyPath: objectCardPrefab
       value: 
       objectReference: {fileID: 1982225775}
     - target: {fileID: 7057939433354960917, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}
       propertyPath: objepediaContent
+      value: 
+      objectReference: {fileID: 747303747}
+    - target: {fileID: 7057939433354960917, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}
+      propertyPath: quizpediaContent
       value: 
       objectReference: {fileID: 747303747}
     - target: {fileID: 7057939433354960917, guid: 1aa2f92f9c4569e428ac19650287d640, type: 3}

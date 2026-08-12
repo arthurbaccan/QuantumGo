@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   objetoCapturar: {fileID: 0}
+  textPergunta: "O gato foi colocado dentro da caixa. Como ele estar\xE1?"
   respostasPergunta:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 31e50ddbef8dcc740995db9be7a634fb, type: 2}
+  - {fileID: 11400000, guid: 822b2dd64cc77574ebb3895ef9f811c1, type: 2}
