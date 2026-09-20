@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c2fba665337a41b10f59562e0b12f, type: 3}
   m_Name: PlankEra1Object3
   m_EditorClassIdentifier: 
-  objectData: {fileID: 11400000, guid: 0b200d0e24e733c43bb25c52a85f410b, type: 2}
+  objetosPesquisa: []
+  ano: 0
+  icone: {fileID: 0}
+  desc: 
+  titulo: 
+  trabalhoRelacionado: {fileID: 0}
+  fisicoInventor: {fileID: 11400000, guid: e71a75ee99932f04d98ac10b9254c5b6, type: 2}
