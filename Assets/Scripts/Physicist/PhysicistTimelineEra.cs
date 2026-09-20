@@ -10,6 +10,6 @@ public class PhysicistTimelineEra : ScriptableObject
     public int anoInicio;
     public int anoFim;
     public string titulo;
-    public List<PhysicistTimelineEraObject> listaObjetos;
+    public List<PhysicistTimelineEraPesquisa> listaObjetos;
     
 }
