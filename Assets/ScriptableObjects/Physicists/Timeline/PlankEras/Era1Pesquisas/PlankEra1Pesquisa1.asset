@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: PlankEra1Pesquisa1
   m_EditorClassIdentifier: 
   objetosPesquisa: []
-  ano: 1910
+  ano: 1950
   icone: {fileID: 1362007385, guid: 851c392252a1ff742b46707280d1a8ba, type: 3}
-  desc: 
-  titulo: Vida
+  desc: 'Teste som
+
+    opa my friend
+
+'
+  titulo: Pesquisa 1
   trabalhoRelacionado: {fileID: 0}
   fisicoInventor: {fileID: 11400000, guid: e71a75ee99932f04d98ac10b9254c5b6, type: 2}
